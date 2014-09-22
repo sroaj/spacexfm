@@ -3,7 +3,8 @@ html, body {
   margin: 0px;
   overflow: hidden;
   font: normal x-small verdana,arial,helvetica,sans-serif;
-  font-size: 15;color:white
+  font-size: 15px;
+  color:white;
 }
 
 .bg {
@@ -24,15 +25,53 @@ html, body {
   min-height: 50%;
   width: auto;
 }
-#content canvas, #content .logo, #content .disclaimer {
+#content canvas, #content .disclaimer {
   position: absolute;
   width:100%; 
   height:100%; 
 }
-#content .disclaimer {
-  display: none;
+
+@-webkit-keyframes disclaimer {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
 }
-#content .logo {
+
+@keyframes disclaimer {
+    0%   {opacity: 1;}
+    90%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#content .disclaimer {
+    -webkit-animation-name: disclaimer;
+    -webkit-animation-duration: 20s;
+    -webkit-animation-fill-mode: forwards;
+    animation-name: disclaimer;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+    opacity: 1;
+}
+.horizontal {
+  display: table;
+  width:100%; 
+  height:100%; 
+  position: absolute;
+}
+
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+  width:100%; 
+  height:100%; 
+}
+
+.logo {
+  z-index: 2;
+  margin-top: -3.7%;
+}
+
+#content .glow {
   z-index: 1;
-  background:url(../images/SpaceX_logo.svg) center center no-repeat; 
+  background: url(../images/Logo_glow_small.svg) center center repeat-x; 
 }

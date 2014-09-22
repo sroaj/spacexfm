@@ -5,7 +5,7 @@ Please contact reddit.com/u/lru for anything regarding this site
 
 All content belongs to respective owners
 
-SpaceX name, SpaceX logo, and SpaceX starfield idea are owned by Space Exploration Technologies Inc.
+SpaceX, SpaceX name, SpaceX logo, SpaceX starfield, and SpaceX Webcast are owned by Space Exploration Technologies Inc.
 
 Background image modified from: https://www.flickr.com/photos/58782395@N03/5519580228/
 Licensed under: https://creativecommons.org/licenses/by/2.0/
@@ -15,15 +15,22 @@ Licensed under: https://github.com/sebleedelisle/Tutorials/blob/master/three/lic
 -->
 <html>
   <head>
+  <!--[if lte IE 8]>
+    <script type="text/javascript">
+        window.location = "http://windows.microsoft.com/en-us/internet-explorer";
+    </script>
+  <![endif]-->
     <title>SpaceX FM</title>
     <meta name="description" content="">
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <link rel="stylesheet" href="css/html5reset.css" />
-    <link rel="icon" href="favicon.png">
+    <link rel="icon" href="-favicon.png">
+    <!--[if IE]><link rel="shortcut icon" href="-favicon.ico"><![endif]-->
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/three.js"></script>
     <script src='js/THREEx.WindowResize.js'></script>
+    <script src="js/rAF.js" defer></script>
     <script src="js/stars.js" defer></script>
   </head>
   <body>
@@ -31,8 +38,12 @@ Licensed under: https://github.com/sebleedelisle/Tutorials/blob/master/three/lic
     <img src="images/background.jpg">
   </div>
   <div id="content">
-    <div class="logo" style="display:none"></div>
-    <div class="disclaimer" style="display:block">This website is not in any way associated with SpaceX</div>
+    <div class="horizontal glow">
+      <div class="vertical">
+        <!--img src="images/SpaceX_logo.svg" class="logo"-->
+      </div>
+    </div>
+    <div class="disclaimer">This website is not in any way associated with SpaceX. SpaceX, SpaceX name, SpaceX logo, SpaceX starfield, and SpaceX Webcast are owned by Space Exploration Technologies Inc.</div>
   </div>
   </body>
 </html>

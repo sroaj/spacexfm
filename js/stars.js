@@ -20,6 +20,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		particles = [];
 
 	// let's get going! 
+	// Go
 	init();
 
 	function init() {
@@ -50,9 +51,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 		makeParticles(); 
 		
-		// render 30 times a second (should also look 
-		// at requestAnimationFrame) 
-		setInterval(update,1000/30); 
+		update();
 	
 	}
 
@@ -65,6 +64,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		// and render the scene from the perspective of the camera
 		renderer.render( scene, camera );
 
+		requestAnimationFrame(update); 
 	}
 
 	// creates a random field of Particle objects
@@ -75,13 +75,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 		// we're gonna move from z position -1000 (far away) 
 		// to 1000 (where the camera is) and add a random particle at every pos. 
-		for ( var zpos= -1000; zpos < 1000; zpos+=10 ) {
+		for ( var zpos= -1000; zpos < 1000; zpos+=20 ) {
 
+			var pMaterial = new THREE.ParticleBasicMaterial({
+			  color: 0xFFFFFF,
+			  size: 1,
+			  map: THREE.ImageUtils.loadTexture(
+			    "images/star.png"
+			  ),
+			  blending: THREE.AdditiveBlending,
+			  transparent: true
+			});
 			// we make a particle material and pass through the 
 			// colour and custom particle render function we defined. 
-			material = new THREE.ParticleCanvasMaterial( { color: 0xffffff, program: particleRender } );
-			// make the particle
-			particle = new THREE.Particle(material);
+			particle = new THREE.Particle(pMaterial);
 
 			// give it a random x and y position between -500 and 500
 			particle.position.x = Math.random() * 1000 - 500;
@@ -91,7 +98,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 			particle.position.z = zpos;
 
 			// scale it up a bit
-			particle.scale.x = particle.scale.y = 2;
+			//particle.scale.x = particle.scale.y = 2;
 
 			// add it to the scene
 			scene.add( particle );
@@ -102,18 +109,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		
 	}
 	
-	// there isn't a built in circle particle renderer 
-	// so we have to define our own. 
-
-	function particleRender( context ) {
-		
-		// we get passed a reference to the canvas context
-		context.beginPath();
-		// and we just have to draw our shape at 0,0 - in this
-		// case an arc from 0 to 2Pi radians or 360º - a full circle!
-		context.arc( 0, 0, 1, 0,  Math.PI * 2, true );
-		context.fill();
-	};
 
 	
 	// moves all the particles dependent on mouse position
@@ -125,7 +120,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 			particle = particles[i]; 
 
-			particle.position.z +=  1;
+			particle.position.z +=  0.5;
 
 			// if the particle is too close move it to the back
 			if(particle.position.z>1000) particle.position.z-=2000; 
