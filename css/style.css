@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   margin: 0px;
   overflow: hidden;
-  font: normal x-small verdana,arial,helvetica,sans-serif;
+  font-family: verdana,arial,helvetica,sans-serif;
   font-size: 15px;
   color:white;
 }
@@ -51,6 +51,10 @@ html, body {
     animation-duration: 20s;
     animation-fill-mode: forwards;
     opacity: 1;
+    text-align: center;
+    width: 100%;
+    margin-top: 4%;
+    font-size: 1.3em;
 }
 .horizontal {
   display: table;

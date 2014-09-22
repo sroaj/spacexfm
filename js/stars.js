@@ -27,7 +27,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 		// Camera params : 
 		// field of view, aspect ratio for render output, near and far clipping plane. 
-		camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000 );
+		camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 2000 );
 
 		// move the camera backwards so we can see stuff! 
 		// default position is 0,0,0. 
@@ -68,31 +68,43 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 	}
 
 	// creates a random field of Particle objects
-	
+
 	function makeParticles() { 
 		
-		var particle, material; 
+		var particle; 
+		var starMaterial = new THREE.ParticleBasicMaterial({
+		  color: 0xFFFFFF,
+		  size: 1,
+		  map: THREE.ImageUtils.loadTexture(
+		    "images/star.png"
+		  ),
+		  blending: THREE.AdditiveBlending,
+		  transparent: true
+		});
+		
+		var circleMaterial = new THREE.ParticleCanvasMaterial( { color: 0xf0ffff, program: particleRender } );
 
 		// we're gonna move from z position -1000 (far away) 
 		// to 1000 (where the camera is) and add a random particle at every pos. 
-		for ( var zpos= -1000; zpos < 1000; zpos+=20 ) {
+		for ( var zpos= -1000; zpos < 1000; zpos+=10) {
 
-			var pMaterial = new THREE.ParticleBasicMaterial({
-			  color: 0xFFFFFF,
-			  size: 1,
-			  map: THREE.ImageUtils.loadTexture(
-			    "images/star.png"
-			  ),
-			  blending: THREE.AdditiveBlending,
-			  transparent: true
-			});
+
 			// we make a particle material and pass through the 
 			// colour and custom particle render function we defined. 
-			particle = new THREE.Particle(pMaterial);
+			particle =  new THREE.Particle(starMaterial);
 
-			// give it a random x and y position between -500 and 500
-			particle.position.x = Math.random() * 1000 - 500;
-			particle.position.y = Math.random() * 1000 - 500;
+
+			// exclude the 400 x 200 region in the center via Monte Carlo sampling
+			var x,y;
+			do {
+				x = Math.random()* 2000 - 1000;
+				y = Math.random()* 2000 - 1000;
+			} while ( -200 < x && x < 200 && 
+					  -200 < y && y < 200 )
+
+			particle.position.x = x;
+			particle.position.y = y;
+
 
 			// set its z position
 			particle.position.z = zpos;
@@ -109,7 +121,18 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 		
 	}
 	
+	// there isn't a built in circle particle renderer 
+	// so we have to define our own. 
 
+	function particleRender( context ) {
+		
+		// we get passed a reference to the canvas context
+		context.beginPath();
+		// and we just have to draw our shape at 0,0 - in this
+		// case an arc from 0 to 2Pi radians or 360º - a full circle!
+		context.arc( 0, 0, 1, 0,  Math.PI * 2, true );
+		context.fill();
+	};
 	
 	// moves all the particles dependent on mouse position
 	
@@ -120,7 +143,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 
 			particle = particles[i]; 
 
-			particle.position.z +=  0.5;
+			particle.position.z +=  0.4;
 
 			// if the particle is too close move it to the back
 			if(particle.position.z>1000) particle.position.z-=2000; 
