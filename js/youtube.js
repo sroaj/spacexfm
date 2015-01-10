@@ -11,6 +11,8 @@ var trackList = [
     {'videoId': 'Cf_-g3UWQ04', 'startSeconds':0, 'endSeconds': undefined }, // SpaceX Dragon V2 Unveil Animation sequence
     {'videoId': '0NKFtrlrOIs', 'startSeconds':0, 'endSeconds': undefined }, // May 20, 2012
     {'videoId': 'vrR31nHCV-U', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Rocket Tank Production
+    {'videoId': 'IBm9xpltdIo', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015                  Canidate for replacement https://www.youtube.com/watch?v=p7x-SumbynI https://soundcloud.com/tmahlmann/crs5-pre-launch-music
+    {'videoId': 'Tccj8-rcQ08', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015                  Canidate for replacement https://www.youtube.com/watch?v=p7x-SumbynI
 ];
 
 var trackCursor = Math.floor(Math.random() * trackList.length);
@@ -37,47 +39,55 @@ function onPlayerStateChange(event) {
         increaseTrackCursor()
         player.loadVideoById(pickTrack());
     }
+    if (event.data == -1) {
+        setTimeout(function() {
+            if (player.getPlayerState() == -1) {
+                console.log("still unstarted after 1 second, skipping");
+                increaseTrackCursor();
+                player.loadVideoById(pickTrack());
+            }
+        },1000)
+    }
 }
 
 
 function pickTrack() {
+    console.log('Playing track '+(trackCursor+1) +' of '+ trackList.length)
     return trackList[trackCursor];
 }
 function increaseTrackCursor() {
-    trackCursor++;
-    trackCursor %= trackList.length;
+    trackCursor = (trackCursor+1) % trackList.length;
 }
 function decreaseTrackCursor() {
-    trackCursor--;
-    trackCursor %= trackList.length;
+    trackCursor = (trackCursor+trackList.length-1) % trackList.length;
 }
 document.onkeydown = function(e) {
     e = e || window.event;
     switch(e.which || e.keyCode) {
-    	case 32: // space
-		    if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
-		        player.playVideo();
-		    } else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
-		        player.pauseVideo();
-		    }
+        case 32: // space
+            if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
+                player.playVideo();
+            } else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
+                player.pauseVideo();
+            }
         break;
 
-    	case 37: // left
-    		increaseTrackCursor();
-        	player.loadVideoById(pickTrack());
+        case 37: // left
+            decreaseTrackCursor();
+            player.loadVideoById(pickTrack());
         break;
 
         case 38: // up
-        	player.setVolume(player.getVolume()+10);
+            player.setVolume(player.getVolume()+10);
         break;
 
         case 39: // right
-    		decreaseTrackCursor();
-        	player.loadVideoById(pickTrack());
+            increaseTrackCursor();
+            player.loadVideoById(pickTrack());
         break;
 
         case 40: // down
-        	player.setVolume(player.getVolume()-10);
+            player.setVolume(player.getVolume()-10);
         break;
 
         default: return;
