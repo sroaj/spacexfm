@@ -8,27 +8,27 @@ html, body {
 }
 
 .bg {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
   height: 200%;
 }
 .bg img {
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
   min-width: 50%;
   min-height: 50%;
   width: auto;
 }
 #content canvas, #content .disclaimer {
   position: absolute;
-  width:100%; 
-  height:100%; 
+  width:100%;
+  height:100%;
 }
 
 @-webkit-keyframes disclaimer {
@@ -41,6 +41,67 @@ html, body {
     0%   {opacity: 1;}
     90%  {opacity: 1;}
     100% {opacity: 0;}
+}
+
+#media {
+    position:relative;
+    z-index:99;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    background:rgba(0,0,0,0.5);
+}
+#media .text {
+    display: none;
+    background:rgba(128,128,255,0.5);
+    padding: 10px 0;
+}
+
+#media.active {
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+#media.active:hover {
+  opacity: 1;
+}
+
+#media iframe {
+    width: 100%;
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 480px) {
+  #media {
+      opacity: 1;
+  }
+  #media .text {
+    display: block;
+  }
+}
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+  #media {
+      opacity: 1;
+  }
+  #media .text {
+    display: block;
+  }
+}
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+  #media {
+      opacity: 1;
+  }
+  #media .text {
+    display: block;
+  }
 }
 
 #content .disclaimer {
@@ -59,16 +120,16 @@ html, body {
 }
 .horizontal {
   display: table;
-  width:100%; 
-  height:100%; 
+  width:100%;
+  height:100%;
   position: absolute;
 }
 
 .vertical {
   display: table-cell;
   vertical-align: middle;
-  width:100%; 
-  height:100%; 
+  width:100%;
+  height:100%;
 }
 
 .logo {
@@ -78,5 +139,5 @@ html, body {
 
 #content .glow {
   z-index: 1;
-  background: url(../images/Logo_glow_small.svg) center center repeat-x; 
+  background: url(../images/Logo_glow_small.svg) center center repeat-x;
 }

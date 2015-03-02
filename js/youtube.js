@@ -11,8 +11,9 @@ var trackList = [
     {'videoId': 'Cf_-g3UWQ04', 'startSeconds':0, 'endSeconds': undefined }, // SpaceX Dragon V2 Unveil Animation sequence
     {'videoId': '0NKFtrlrOIs', 'startSeconds':0, 'endSeconds': undefined }, // May 20, 2012
     {'videoId': 'vrR31nHCV-U', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Rocket Tank Production
-    {'videoId': 'IBm9xpltdIo', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015                  Canidate for replacement https://www.youtube.com/watch?v=p7x-SumbynI https://soundcloud.com/tmahlmann/crs5-pre-launch-music
-    {'videoId': 'Tccj8-rcQ08', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015                  Canidate for replacement https://www.youtube.com/watch?v=p7x-SumbynI
+    {'videoId': 'IBm9xpltdIo', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015
+    {'videoId': 'Tccj8-rcQ08', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015
+    {'videoId': 'dGF8nTY-Bc4', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 01.03.2015
 ];
 
 var trackCursor = Math.floor(Math.random() * trackList.length);
@@ -48,8 +49,10 @@ function onPlayerStateChange(event) {
             }
         },1000)
     }
+    if (document.getElementById('media').className != "active") {
+        document.getElementById('media').className = 'active';
+    }
 }
-
 
 function pickTrack() {
     console.log('Playing track '+(trackCursor+1) +' of '+ trackList.length)
