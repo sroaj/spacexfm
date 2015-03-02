@@ -50,6 +50,9 @@ html, body {
     width: 100%;
     opacity: 0;
     background:rgba(0,0,0,0.5);
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
 }
 #media .text {
     display: none;
@@ -57,51 +60,22 @@ html, body {
     padding: 10px 0;
 }
 
-#media.active {
+#media.active, .no-videoautoplay #media.active {
   opacity: 0;
-  transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
 }
 
-#media.active:hover {
+#media.active:hover, #media:hover  {
   opacity: 1;
 }
 
 #media iframe {
     width: 100%;
 }
-
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
-  #media {
+.no-videoautoplay #media {
       opacity: 1;
-  }
-  #media .text {
-    display: block;
-  }
 }
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px) {
-  #media {
-      opacity: 1;
-  }
-  #media .text {
+.no-videoautoplay #media .text {
     display: block;
-  }
-}
-/* iPhone 4 ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-  #media {
-      opacity: 1;
-  }
-  #media .text {
-    display: block;
-  }
 }
 
 #content .disclaimer {
