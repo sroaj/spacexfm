@@ -13,7 +13,8 @@ var trackList = [
     {'videoId': 'vrR31nHCV-U', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Rocket Tank Production
     {'videoId': 'IBm9xpltdIo', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015
     {'videoId': 'Tccj8-rcQ08', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 10.01.2015
-    {'videoId': 'dGF8nTY-Bc4', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 01.03.2015
+    {'videoId': 'SOLOZRVNM8w', 'startSeconds':0, 'endSeconds': undefined }, //Parker & Hanson - Gravity (Original Mix) by Anjunabeats
+    {'videoId': 'mA548WWMiLY', 'startSeconds':0, 'endSeconds': 216 }, //SpaceX Webcast Music 2015.04.14 + SpaceX Intro
 ];
 
 var trackCursor = Math.floor(Math.random() * trackList.length);
