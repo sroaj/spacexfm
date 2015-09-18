@@ -108,10 +108,12 @@ html, body {
 
 .logo {
   z-index: 2;
-  margin-top: -3.7%;
+  margin: 2.3%;
+  margin-right: 4%;
+  margin-top: -1%;
 }
 
 #content .glow {
   z-index: 1;
-  background: url(../images/Logo_glow_small.svg) center center repeat-x;
+  /*background: url(../images/Logo_glow_small.svg) center center repeat-x;*/
 }
