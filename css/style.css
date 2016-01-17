@@ -115,5 +115,5 @@ html, body {
 
 #content .glow {
   z-index: 1;
-  /*background: url(../images/Logo_glow_small.svg) center center repeat-x;*/
+  background: url(../images/Logo_glow_small.svg) center center repeat-x;
 }
