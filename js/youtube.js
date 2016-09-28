@@ -21,7 +21,11 @@ var trackList = [
     {'videoId': 'IOUjcEtT5_w', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 21.12.2015 Intro 1 | ORBCOMM-2 Mission
     {'videoId': 'yXAEAUN6Az8', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 21.12.2015 Intro 2 | ORBCOMM-2 Mission
     {'videoId': 'd0X82bh42gQ', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 21.12.2015 outro | ORBCOMM-2 Mission
-    {'videoId': 'zLbUTy0K97c', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX - Webcast Music 15.06.2016
+    {'videoId': 'zLbUTy0K97c', 'startSeconds':283, 'endSeconds': undefined }, //SpaceX - Webcast Music 15.06.2016
+	{'videoId': '0qo78R_yYFA', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Interplanetary Transport System
+	{'videoId': 'A1YxNYiyALg', 'startSeconds':0, 'endSeconds': 263 }, //Resonator by Test Shot Starfish
+	{'videoId': 'A1YxNYiyALg', 'startSeconds':830, 'endSeconds': 1156 }, //Forwared Nostalgic by Test Shot Starfish
+
 ];
 
 var trackCursor = Math.floor(Math.random() * trackList.length);
