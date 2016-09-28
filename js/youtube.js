@@ -27,6 +27,7 @@ var trackList = [
 	{'videoId': 'A1YxNYiyALg', 'startSeconds':830, 'endSeconds': 1156 }, //Forwared Nostalgic by Test Shot Starfish
 ];
 
+var trackPlaying = false;
 var trackCursor = Math.floor(Math.random() * trackList.length);
 var newTrack = pickTrack();
 DOMYoutubeIFrame.src = 'https://www.youtube.com/embed/'+newTrack.videoId+'?start='+newTrack.startSeconds+'&end='+newTrack.endSeconds+'&autoplay=1&enablejsapi=1&origin='+window.location.protocol + "//" + window.location.hostname;
@@ -48,13 +49,22 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
-        increaseTrackCursor()
-        player.loadVideoById(pickTrack());
+        if (trackPlaying == false) {
+            console.log("Attempting to play another video too fast");
+        } else {
+            trackPlaying = false;
+            increaseTrackCursor()
+            player.loadVideoById(pickTrack());
+        }
+    }
+    if (event.data == YT.PlayerState.PLAYING) {
+        console.log("Track now playing");
+        trackPlaying = true;
     }
     if (event.data == -1) {
         setTimeout(function() {
             if (player.getPlayerState() == -1) {
-                console.log("still unstarted after 1 second, skipping");
+                console.log("Still unstarted after 1 second, skipping");
                 increaseTrackCursor();
                 player.loadVideoById(pickTrack());
             }
