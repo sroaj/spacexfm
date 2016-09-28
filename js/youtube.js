@@ -21,8 +21,7 @@ var trackList = [
     {'videoId': 'IOUjcEtT5_w', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 21.12.2015 Intro 1 | ORBCOMM-2 Mission
     {'videoId': 'yXAEAUN6Az8', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 21.12.2015 Intro 2 | ORBCOMM-2 Mission
     {'videoId': 'd0X82bh42gQ', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX Webcast Music 21.12.2015 outro | ORBCOMM-2 Mission
-    {'videoId': 'zLbUTy0K97c', 'startSeconds':0, 'endSeconds': 572 }, //SpaceX - Webcast Music 15.06.2016
-    {'videoId': 'hVTXPwNBu7g', 'startSeconds':0, 'endSeconds': undefined }, //The Strangers by The Deep
+    {'videoId': 'zLbUTy0K97c', 'startSeconds':0, 'endSeconds': undefined }, //SpaceX - Webcast Music 15.06.2016
 ];
 
 var trackCursor = Math.floor(Math.random() * trackList.length);
