@@ -68,7 +68,6 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         console.log("Track now playing");
         trackPlaying = true;
-		console.log(document.activeElement);
     }
     if (event.data == -1) {
         setTimeout(function() {
@@ -117,16 +116,17 @@ function handleTouchStart(evt) {
 	moveTrackSet = false;
     xDown = evt.touches[0].clientX;
     yDown = evt.touches[0].clientY;
-	tapDetector = setTimeout(function(){
-
-		//if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
-		//	player.playVideo();
-		//} else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
-		//	player.pauseVideo();
-		//}
-			
-	}, 500);
-};                                                
+	// Make sure we don't pause if the user is switching from iframe to hide it after playing
+	if (document.activeElement.nodeName.toLowerCase() != "iframe") {
+		tapDetector = setTimeout(function(){
+			if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
+				player.playVideo();
+			} else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
+				player.pauseVideo();
+			}
+		}, 200);
+	}
+};
 
 function handleTouchMove(evt) {
     if ( ! xDown || ! yDown ) {
