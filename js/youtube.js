@@ -68,13 +68,6 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         console.log("Track now playing");
         trackPlaying = true;
-		
-		// Show the track information
-		clearTimeout(fadeInTimeout);
-		document.getElementById('track-info').className = "";
-		fadeInTimeout = setTimeout(function(){
-			document.getElementById('track-info').className = "animate";
-		}, 1000);
     }
     if (event.data == -1) {
         setTimeout(function() {
@@ -94,6 +87,13 @@ function pickTrack() {
     console.log('Playing track '+(trackCursor+1) +' of '+ trackList.length);
 	document.getElementById('artist').innerHTML = trackList[trackCursor].artist;
 	document.getElementById('name').innerHTML = trackList[trackCursor].name;
+	
+	// Show the track information
+	clearTimeout(fadeInTimeout);
+	document.getElementById('track-info').className = "";
+	fadeInTimeout = setTimeout(function(){
+		document.getElementById('track-info').className = "animate";
+	}, 1000);
     return trackList[trackCursor];
 }
 function increaseTrackCursor() {
