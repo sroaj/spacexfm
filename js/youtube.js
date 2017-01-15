@@ -117,7 +117,9 @@ function handleTouchStart(evt) {
     xDown = evt.touches[0].clientX;
     yDown = evt.touches[0].clientY;
 	// Make sure we don't pause if the user is switching from iframe to hide it after playing
-	if (document.activeElement.nodeName.toLowerCase() != "iframe") {
+	console.log(document.activeElement.nodeName.toLowerCase());
+	console.log(document.activeElement);
+	if (document.activeElement.nodeName.toLowerCase() == "body") {
 		tapDetector = setTimeout(function(){
 			if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
 				player.playVideo();
