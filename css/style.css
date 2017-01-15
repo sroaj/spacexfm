@@ -117,3 +117,42 @@ html, body {
   z-index: 1;
   background: url(../images/Logo_glow_small.svg) center center repeat-x;
 }
+
+@-webkit-keyframes track-info {
+    0%   {opacity: 0;}
+    10%  {opacity: 0.9;}
+    90%  {opacity: 0.9;}
+    100% {opacity: 0;}
+}
+
+@keyframes track-info {
+    0%   {opacity: 0;}
+    10%  {opacity: 0.9;}
+    90%  {opacity: 0.9;}
+    100% {opacity: 0;}
+}
+
+#track-info {
+	position: absolute;
+    bottom: 4%;
+    left: 3%;
+    text-transform: uppercase;
+    color: #A1AFB4;
+    font-size: x-large;
+    white-space: nowrap;
+    opacity: 0;
+    -webkit-animation-duration: 15s;
+    -webkit-animation-fill-mode: forwards;
+    animation-duration: 15s;
+    animation-fill-mode: forwards;
+}
+
+#track-info.animate {
+    animation-name: track-info;
+    -webkit-animation-name: track-info;
+}
+
+#track-info  #name {
+	text-align: right;
+	margin-top: 5%;
+}

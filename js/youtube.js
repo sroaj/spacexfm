@@ -11,16 +11,16 @@ var trackList = [
     {'videoId': 'Q7EL1nTnOI8', 'startSeconds':788, 'endSeconds': 1044,       'name': 'Grace VS Technique',                     'artist': 'Chris Southward'},
     {'videoId': 'Q7EL1nTnOI8', 'startSeconds':1044, 'endSeconds': 1346,      'name': 'Louder',                                 'artist': '5 seconds media'},
     {'videoId': 'Ggo7E0LyEJw', 'startSeconds':11, 'endSeconds': undefined,   'name': 'Orbital',                                'artist': 'Thomas hogan'},
-    {'videoId': 'CQnR5fhCXkQ', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Unknown Falcon 9 First Stage Return',    'artist': 'Unknown'},
-    {'videoId': 'MX76RyZulI8', 'startSeconds':0, 'endSeconds': 144,          'name': 'Unknown SpaceX Dragon V2 Unveil Intro',  'artist': 'Unknown'},
-    {'videoId': 'MX76RyZulI8', 'startSeconds':1048, 'endSeconds': 1223,      'name': 'Unknown SpaceX Dragon V2 Unveil Outro',  'artist': 'Unknown'},
+    {'videoId': 'CQnR5fhCXkQ', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Falcon 9 First Stage Return',    'artist': 'Unknown'},
+    {'videoId': 'MX76RyZulI8', 'startSeconds':0, 'endSeconds': 144,          'name': 'SpaceX Dragon V2 Unveil Intro',  'artist': 'Unknown'},
+    {'videoId': 'MX76RyZulI8', 'startSeconds':1048, 'endSeconds': 1223,      'name': 'SpaceX Dragon V2 Unveil Outro',  'artist': 'Unknown'},
     {'videoId': 'Cf_-g3UWQ04', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Now The Time Is Here',                   'artist': 'Toni Halliday' },
     {'videoId': '0NKFtrlrOIs', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Trip Wire',                              'artist': 'Aleksandar Dimitrijevic'},
-    {'videoId': 'vrR31nHCV-U', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Unknown SpaceX Rocket Tank Production',  'artist': 'Unknown'},
-    {'videoId': 'IBm9xpltdIo', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Unknown SpaceX Webcast Music 10.01.2015','artist': 'Unknown'},
+    {'videoId': 'vrR31nHCV-U', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Rocket Tank Production',  'artist': 'Unknown'},
+    {'videoId': 'IBm9xpltdIo', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Webcast Music 10.01.2015','artist': 'Unknown'},
     {'videoId': 'Tccj8-rcQ08', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Cascade',                                'artist': 'Chill Purpose'},
     {'videoId': 'SOLOZRVNM8w', 'startSeconds':132, 'endSeconds': 348,        'name': 'Gravity',                                'artist': 'Parker & Hanson'},
-    {'videoId': '7uflq0d4rzg', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Unknown SpaceX Webcast Music 28.06.2015','artist': 'Unknown'},
+    {'videoId': '7uflq0d4rzg', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Webcast Music 28.06.2015','artist': 'Unknown'},
     {'videoId': 'xjSb_b4TtxI', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Drifting Clouds',                        'artist': 'Andrew Britton and David Goldsmith' },
     {'videoId': 'IOUjcEtT5_w', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Samus',                                  'artist': 'Test Shot Starfish' },
     {'videoId': 'yXAEAUN6Az8', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Ice Kid',                                'artist': 'Test Shot Starfish'},
@@ -53,6 +53,8 @@ function onYouTubeIframeAPIReady() {
     });
 }
 
+var fadeInTimeout;
+
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.ENDED) {
         if (trackPlaying == false) {
@@ -66,6 +68,13 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         console.log("Track now playing");
         trackPlaying = true;
+		
+		// Show the track information
+		clearTimeout(fadeInTimeout);
+		document.getElementById('track-info').className = "";
+		fadeInTimeout = setTimeout(function(){
+			document.getElementById('track-info').className = "animate";
+		}, 1000);
     }
     if (event.data == -1) {
         setTimeout(function() {
@@ -82,9 +91,9 @@ function onPlayerStateChange(event) {
 }
 
 function pickTrack() {
-    console.log('Playing track '+(trackCursor+1) +' of '+ trackList.length)
-    console.log('Artist: '+trackList[trackCursor].artist);
-    console.log('Name: '+trackList[trackCursor].name);
+    console.log('Playing track '+(trackCursor+1) +' of '+ trackList.length);
+	document.getElementById('artist').innerHTML = trackList[trackCursor].artist;
+	document.getElementById('name').innerHTML = trackList[trackCursor].name;
     return trackList[trackCursor];
 }
 function increaseTrackCursor() {
