@@ -25,10 +25,10 @@ var trackList = [
     {'videoId': 'IOUjcEtT5_w', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Samus',                                  'artist': 'Test Shot Starfish' },
     {'videoId': 'yXAEAUN6Az8', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Ice Kid',                                'artist': 'Test Shot Starfish'},
     {'videoId': 'd0X82bh42gQ', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Flight',                                 'artist': 'Test Shot Starfish'},
-    {'videoId': 'zLbUTy0K97c', 'startSeconds':283, 'endSeconds': 571,        'name': 'Unknown B',                              'artist': 'Unknown' },
+    {'videoId': 'zLbUTy0K97c', 'startSeconds':283, 'endSeconds': 571,        'name': 'SpaceX Webcast Music 15.06.2016 Track 1','artist': 'Unknown' }, //Unknown B
 	{'videoId': 'hVTXPwNBu7g', 'startSeconds':1, 'endSeconds': undefined,    'name': 'The Strangers',                          'artist': 'The Deep'},
 	{'videoId': 'A1YxNYiyALg', 'startSeconds':0, 'endSeconds': 263,          'name': 'Resonator',                              'artist': 'Test Shot Starfish' },
-    {'videoId': 'A1YxNYiyALg', 'startSeconds':263, 'endSeconds': 561,        'name': 'Unknown A',                              'artist': 'Unknown' },
+    {'videoId': 'A1YxNYiyALg', 'startSeconds':263, 'endSeconds': 561,        'name': 'Making Humans a Multiplanetary Species Track 2','artist': 'Unknown' }, //Unknown A
 	{'videoId': 'A1YxNYiyALg', 'startSeconds':830, 'endSeconds': 1156,       'name': 'Forwared Nostalgic',                     'artist': 'Test Shot Starfish' },
     {'videoId': '0qo78R_yYFA', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Interplanetary Transport System', 'artist': 'Unknown' },
 ];
@@ -102,6 +102,74 @@ function increaseTrackCursor() {
 function decreaseTrackCursor() {
     trackCursor = (trackCursor+trackList.length-1) % trackList.length;
 }
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;
+var yDown = null;
+
+var tapDetector;
+
+var moveTrackSet = false;
+
+function handleTouchStart(evt) {
+	moveTrackSet = false;
+    xDown = evt.touches[0].clientX;
+    yDown = evt.touches[0].clientY;
+	tapDetector = setTimeout(function(){
+
+		if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
+			player.playVideo();
+		} else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
+			player.pauseVideo();
+		}
+			
+	}, 500);
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+	clearTimeout(tapDetector);
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */ 
+			if (!moveTrackSet) {
+				moveTrackSet = true;
+				decreaseTrackCursor();
+				player.loadVideoById(pickTrack());
+			}
+        } else {
+            /* right swipe */
+			if (!moveTrackSet) {
+				moveTrackSet = true;
+				increaseTrackCursor();
+				player.loadVideoById(pickTrack());
+			}
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */ 
+            player.setVolume(player.getVolume()+10);
+        } else { 
+            /* down swipe */
+            player.setVolume(player.getVolume()-10);
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
+
+
 document.onkeydown = function(e) {
     e = e || window.event;
     switch(e.which || e.keyCode) {
