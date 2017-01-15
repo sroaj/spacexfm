@@ -68,7 +68,7 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         console.log("Track now playing");
         trackPlaying = true;
-		document.getElementById("logo").focus();
+		console.log(document.activeElement);
     }
     if (event.data == -1) {
         setTimeout(function() {
@@ -119,11 +119,11 @@ function handleTouchStart(evt) {
     yDown = evt.touches[0].clientY;
 	tapDetector = setTimeout(function(){
 
-		if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
-			player.playVideo();
-		} else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
-			player.pauseVideo();
-		}
+		//if (player.getPlayerState() == YT.PlayerState.PAUSED ) {
+		//	player.playVideo();
+		//} else if (player.getPlayerState() == YT.PlayerState.PLAYING ) {
+		//	player.pauseVideo();
+		//}
 			
 	}, 500);
 };                                                
