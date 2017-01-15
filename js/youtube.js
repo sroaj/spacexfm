@@ -31,6 +31,8 @@ var trackList = [
     {'videoId': 'A1YxNYiyALg', 'startSeconds':263, 'endSeconds': 561,        'name': 'Making Humans a Multiplanetary Species Track 2','artist': 'Unknown' }, //Unknown A
 	{'videoId': 'A1YxNYiyALg', 'startSeconds':830, 'endSeconds': 1156,       'name': 'Forwared Nostalgic',                     'artist': 'Test Shot Starfish' },
     {'videoId': '0qo78R_yYFA', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Interplanetary Transport System', 'artist': 'Unknown' },
+    {'videoId': 'HKrXcfcz6Ps', 'startSeconds':0, 'endSeconds': 268,          'name': 'Return To Flight',                       'artist': 'Test Shot Starfish' },
+    {'videoId': 'HKrXcfcz6Ps', 'startSeconds':269, 'endSeconds': 566,        'name': 'Fly By',                                 'artist': 'Test Shot Starfish' },
 ];
 
 var trackPlaying = false;
