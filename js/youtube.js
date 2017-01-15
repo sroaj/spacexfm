@@ -159,10 +159,10 @@ function handleTouchMove(evt) {
     } else {
         if ( yDiff > 0 ) {
             /* up swipe */ 
-            player.setVolume(player.getVolume()+10);
+            //player.setVolume(player.getVolume()+10);
         } else { 
             /* down swipe */
-            player.setVolume(player.getVolume()-10);
+            //player.setVolume(player.getVolume()-10);
         }                                                                 
     }
     /* reset values */
