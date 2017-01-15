@@ -68,6 +68,7 @@ function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING) {
         console.log("Track now playing");
         trackPlaying = true;
+		document.getElementById("logo").focus();
     }
     if (event.data == -1) {
         setTimeout(function() {
