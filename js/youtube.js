@@ -35,6 +35,7 @@ var trackList = [
     {'videoId': 'HKrXcfcz6Ps', 'startSeconds':269, 'endSeconds': 566,        'name': 'Fly By',                                 'artist': 'Test Shot Starfish' },
     {'videoId': 'qPVRRtNxw5Q', 'startSeconds':0, 'endSeconds': 250,          'name': 'LC-39A',                                 'artist': 'Test Shot Starfish' },
     {'videoId': 'qPVRRtNxw5Q', 'startSeconds':250, 'endSeconds': 548,        'name': 'Andromeda',                              'artist': 'Test Shot Starfish' },
+    {'videoId': 'fbvJEghT4Ks', 'startSeconds':0, 'endSeconds': 318,          'name': 'Re-Flight',                              'artist': 'Test Shot Starfish' },
 ];
 
 var trackPlaying = false;
