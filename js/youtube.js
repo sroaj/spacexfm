@@ -33,8 +33,8 @@ var trackList = [
     {'videoId': '0qo78R_yYFA', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Interplanetary Transport System', 'artist': 'Unknown' },
     {'videoId': 'HKrXcfcz6Ps', 'startSeconds':0, 'endSeconds': 268,          'name': 'Return To Flight',                       'artist': 'Test Shot Starfish' },
     {'videoId': 'HKrXcfcz6Ps', 'startSeconds':269, 'endSeconds': 566,        'name': 'Fly By',                                 'artist': 'Test Shot Starfish' },
-    {'videoId': 'qPVRRtNxw5Q', 'startSeconds':0, 'endSeconds': 250,          'name': 'LC-39A',                                 'artist': 'Test Shot Starfish' },
-    {'videoId': 'qPVRRtNxw5Q', 'startSeconds':250, 'endSeconds': 548,        'name': 'Andromeda',                              'artist': 'Test Shot Starfish' },
+    {'videoId': 'TIu2VK_4Y0o', 'startSeconds':0, 'endSeconds': 287,          'name': 'LC-39A',                                 'artist': 'Test Shot Starfish' },
+    {'videoId': 'TIu2VK_4Y0o', 'startSeconds':287, 'endSeconds': undefined,  'name': 'Andromeda',                              'artist': 'Test Shot Starfish' },
     {'videoId': 'fbvJEghT4Ks', 'startSeconds':0, 'endSeconds': 318,          'name': 'Re-Flight',                              'artist': 'Test Shot Starfish' },
 ];
 
