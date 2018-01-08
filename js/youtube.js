@@ -38,6 +38,8 @@ var trackList = [
     {'videoId': 'fbvJEghT4Ks', 'startSeconds':0, 'endSeconds': 318,          'name': 'Re-Flight',                              'artist': 'Test Shot Starfish' },
     {'videoId': 'URh-oPqjlM8', 'startSeconds':0, 'endSeconds': 356,          'name': 'In the Shadow of Giants',                'artist': 'Test Shot Starfish' },
     {'videoId': 'xQAtuwteb5k', 'startSeconds':0, 'endSeconds': 403,          'name': 'Approaching Dragon',                     'artist': 'Test Shot Starfish' },
+    {'videoId': '0p7GLZec4yc', 'startSeconds':0, 'endSeconds': 271,          'name': 'Sputnik',                                'artist': 'Test Shot Starfish' },
+    {'videoId': 'xCEC58LxQIU', 'startSeconds':0, 'endSeconds': 271,          'name': 'Flight-Proven',                          'artist': 'Test Shot Starfish' },
 ];
 
 var trackPlaying = false;
