@@ -40,6 +40,8 @@ var trackList = [
     {'videoId': 'xQAtuwteb5k', 'startSeconds':0, 'endSeconds': 403,          'name': 'Approaching Dragon',                     'artist': 'Test Shot Starfish' },
     {'videoId': '0p7GLZec4yc', 'startSeconds':0, 'endSeconds': 271,          'name': 'Sputnik',                                'artist': 'Test Shot Starfish' },
     {'videoId': 'xCEC58LxQIU', 'startSeconds':0, 'endSeconds': 271,          'name': 'Flight-Proven',                          'artist': 'Test Shot Starfish' },
+    {'videoId': 'yw1otjGAk1s', 'startSeconds':0, 'endSeconds': 272,          'name': 'Rollout',                                'artist': 'Test Shot Starfish' },
+    {'videoId': 'yw1otjGAk1s', 'startSeconds':273, 'endSeconds': 472,        'name': 'Heavy',                                  'artist': 'Test Shot Starfish' },
 ];
 
 var trackPlaying = false;
