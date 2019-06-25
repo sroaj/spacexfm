@@ -42,6 +42,7 @@ var trackList = [
     {'videoId': 'xCEC58LxQIU', 'startSeconds':0, 'endSeconds': 271,          'name': 'Flight-Proven',                          'artist': 'Test Shot Starfish' },
     {'videoId': 'yw1otjGAk1s', 'startSeconds':0, 'endSeconds': 272,          'name': 'Rollout',                                'artist': 'Test Shot Starfish' },
     {'videoId': 'yw1otjGAk1s', 'startSeconds':273, 'endSeconds': 472,        'name': 'Heavy',                                  'artist': 'Test Shot Starfish' },
+    {'videoId': 'qLEuCn8RT14', 'startSeconds':12, 'endSeconds': undefined,   'name': 'STP-2 Animation',                        'artist': 'Unknown' },
 ];
 
 var trackPlaying = false;
