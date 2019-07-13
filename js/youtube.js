@@ -11,6 +11,7 @@ var trackList = [
     {'videoId': 'Q7EL1nTnOI8', 'startSeconds':788, 'endSeconds': 1044,       'name': 'Grace VS Technique',                     'artist': 'Chris Southward'},
     {'videoId': 'Q7EL1nTnOI8', 'startSeconds':1044, 'endSeconds': 1346,      'name': 'Louder',                                 'artist': '5 seconds media'},
     {'videoId': 'Ggo7E0LyEJw', 'startSeconds':11, 'endSeconds': undefined,   'name': 'Orbital',                                'artist': 'Thomas hogan'},
+    {'videoId': 'LtI1V624vWM', 'startSeconds':0, 'endSeconds': undefined,    'name': 'SpaceX Fairing Separation Test',         'artist': 'Unknown' },
     {'videoId': 'CQnR5fhCXkQ', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Falcon 9 First Stage Return',    'artist': 'Unknown'},
     {'videoId': 'MX76RyZulI8', 'startSeconds':0, 'endSeconds': 144,          'name': 'SpaceX Dragon V2 Unveil Intro',  'artist': 'Unknown'},
     {'videoId': 'MX76RyZulI8', 'startSeconds':1048, 'endSeconds': 1223,      'name': 'SpaceX Dragon V2 Unveil Outro',  'artist': 'Unknown'},
@@ -42,7 +43,7 @@ var trackList = [
     {'videoId': 'xCEC58LxQIU', 'startSeconds':0, 'endSeconds': 271,          'name': 'Flight-Proven',                          'artist': 'Test Shot Starfish' },
     {'videoId': 'yw1otjGAk1s', 'startSeconds':0, 'endSeconds': 272,          'name': 'Rollout',                                'artist': 'Test Shot Starfish' },
     {'videoId': 'yw1otjGAk1s', 'startSeconds':273, 'endSeconds': 472,        'name': 'Heavy',                                  'artist': 'Test Shot Starfish' },
-    {'videoId': 'qLEuCn8RT14', 'startSeconds':12, 'endSeconds': undefined,   'name': 'STP-2 Animation',                        'artist': 'Unknown' },
+    {'videoId': 'qLEuCn8RT14', 'startSeconds':12, 'endSeconds': undefined,   'name': 'Soul Frequency',                         'artist': 'Cymatix' },
 ];
 
 var trackPlaying = false;
