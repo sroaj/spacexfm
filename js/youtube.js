@@ -45,7 +45,8 @@ var trackList = [
     {'videoId': 'yw1otjGAk1s', 'startSeconds':273, 'endSeconds': 472,        'name': 'Heavy',                                  'artist': 'Test Shot Starfish' },
     {'videoId': 'qLEuCn8RT14', 'startSeconds':12, 'endSeconds': undefined,   'name': 'Soul Frequency',                         'artist': 'Cymatix' },
     {'videoId': 'mhrkdHshb3E', 'startSeconds':0, 'endSeconds': 40,           'name': 'Crew Dragon Launch Escape Demonstration','artist': 'Test Shot Starfish' },
-    {'videoId': 'ggc8NS_SfwE', 'startSeconds':0, 'endSeconds': undefined,    'name': 'Crew',                                   'artist': 'Test Shot Starfish' },
+    {'videoId': 'y4xBFHjkUvw', 'startSeconds':0, 'endSeconds': 262,          'name': 'Crew',                                   'artist': 'Test Shot Starfish' },
+    {'videoId': '8riKQXChPGg', 'startSeconds':0, 'endSeconds': 203,          'name': 'New Gravity',                            'artist': 'Test Shot Starfish' },
 ];
 
 var trackPlaying = false;
